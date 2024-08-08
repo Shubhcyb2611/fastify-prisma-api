@@ -5,15 +5,16 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node dist/app.js",
+    "dev": "nodemon",
     "build": "tsc",
-    "start": "node dist/app.js"
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^5.18.0",
+    "esm": "^3.2.25",
     "fastify": "^4.28.1",
     "pino": "^9.3.2",
     "prisma": "^5.18.0",
