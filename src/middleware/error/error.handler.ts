@@ -1,6 +1,5 @@
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { Logger } from '../logger/logger';
 
 export function prismaErrorHandler(
   err: any,
@@ -17,7 +16,7 @@ export function prismaErrorHandler(
     }
   }
   const errorMessage = err?.message || 'An unexpected error occurred';
-  Logger.error(err);
+  console.error(err);
 
   reply.status(statusCode).send({
     error: {

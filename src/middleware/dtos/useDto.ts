@@ -9,7 +9,6 @@ export function useDto(schema: ZodSchema) {
       reply.status(400).send({
         error: {
           code: 400,
-          message: error.errors[0].message,
         },
       });
     }
