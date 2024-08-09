@@ -1,19 +1,17 @@
-import Fastify from 'fastify';
+import { fastify, FastifyLoggerOptions } from 'fastify';
+import { Logger } from './middleware/logger/logger.js';
 
-const fastify = Fastify({
-  logger: true,
-});
+const server = fastify({ logger: Logger['development'] });
 
-fastify.get('/', async (request, reply) => {
-  return { hello: 'world' };
+server.get('/', async (request, reply) => {
+  return 'Hello there! 👋';
 });
 
 const start = async () => {
   try {
-    await fastify.listen({ port: 3000 });
-    fastify.log.info('Server listening on http://localhost:3000');
+    await server.listen({ port: 8080 });
   } catch (err) {
-    fastify.log.error(err);
+    console.error(err);
     process.exit(1);
   }
 };

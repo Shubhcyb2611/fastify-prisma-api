@@ -5,15 +5,16 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon",
-    "build": "tsc",
-    "start": "node dist/server.js"
+    "dev": "nodemon dist/index.js",
+    "build": "tsc -w",
+    "start": "node build/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^5.18.0",
+    "@types/pino": "^7.0.4",
     "esm": "^3.2.25",
     "fastify": "^4.28.1",
     "pino": "^9.3.2",
@@ -21,7 +22,9 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/node": "^22.1.0",
     "nodemon": "^3.1.4",
+    "pino-pretty": "^11.2.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   }
